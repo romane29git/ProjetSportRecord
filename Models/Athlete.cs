@@ -6,8 +6,6 @@ public class Athlete
     public int Age { get; set; }
     public string BriefDescription { get; set; } = null!;
     public string Nationality { get; set; } = null!;
-    public Record Record { get; set; } = null!;
     public Discipline Discipline { get; set; } = null!;
-
 
 }
