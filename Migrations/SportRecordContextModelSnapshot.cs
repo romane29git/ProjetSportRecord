@@ -22,11 +22,7 @@ namespace projetribardcotecolissongr3.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Age")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("BriefDescription")
-                        .IsRequired()
+                    b.Property<DateTime>("BirthDate")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("DisciplineId")
@@ -34,6 +30,9 @@ namespace projetribardcotecolissongr3.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<char>("Gender")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
@@ -112,10 +111,6 @@ namespace projetribardcotecolissongr3.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()

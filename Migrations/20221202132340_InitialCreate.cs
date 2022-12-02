@@ -17,8 +17,7 @@ namespace projetribardcotecolissongr3.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: false)
+                    Name = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,8 +53,8 @@ namespace projetribardcotecolissongr3.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
                     FirstName = table.Column<string>(type: "TEXT", nullable: false),
-                    Age = table.Column<int>(type: "INTEGER", nullable: false),
-                    BriefDescription = table.Column<string>(type: "TEXT", nullable: false),
+                    Gender = table.Column<char>(type: "TEXT", nullable: false),
+                    BirthDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Nationality = table.Column<string>(type: "TEXT", nullable: false),
                     DisciplineId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
