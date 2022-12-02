@@ -1,0 +1,21 @@
+@model IEnumerable<Sport>
+
+@{
+    ViewData["Title"] = "Sports";
+}
+
+<h2>Listes des sports</h2>
+
+<table class="table">
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
