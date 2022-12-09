@@ -1,0 +1,2 @@
+curl -X POST -k -H 'Content-Type: application/json' -i https://localhost:7292/api/athleteapi/ --data '{"FirstName": "Renelle","LastName": "Lamote","Gender": "F", "BirthDate": "1979-12-14","Nationality": "France","Discipline":2}'
+
