@@ -39,8 +39,14 @@ public class AthleteApiController : ControllerBase
     // POST: api/AthleteApi
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-    public async Task<ActionResult<Athlete>> PostAthlete(Athlete athlete)
+    public async Task<ActionResult<Athlete>> PostAthlete(AthleteDTO athleteDTO)
     {
+        Athlete athlete = new Athlete(athleteDTO);
+
+        var discipline = _context.Disciplines.Find(athleteDTO.DisciplineId);
+
+        athlete.Discipline = discipline!;
+
         _context.Athletes.Add(athlete);
         await _context.SaveChangesAsync();
 
