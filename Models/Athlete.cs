@@ -6,6 +6,6 @@ public class Athlete
     public char Gender { get; set; }
     public DateTime BirthDate { get; set; }
     public string Nationality { get; set; } = null!;
-    public Discipline Discipline { get; set; } = null!;
+    public Discipline? Discipline { get; set; } = null!;
 
 }

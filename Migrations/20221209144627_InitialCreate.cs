@@ -56,7 +56,7 @@ namespace projetribardcotecolissongr3.Migrations
                     Gender = table.Column<char>(type: "TEXT", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Nationality = table.Column<string>(type: "TEXT", nullable: false),
-                    DisciplineId = table.Column<int>(type: "INTEGER", nullable: false)
+                    DisciplineId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -65,8 +65,7 @@ namespace projetribardcotecolissongr3.Migrations
                         name: "FK_Athletes_Disciplines_DisciplineId",
                         column: x => x.DisciplineId,
                         principalTable: "Disciplines",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(

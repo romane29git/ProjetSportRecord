@@ -25,7 +25,7 @@ namespace projetribardcotecolissongr3.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("DisciplineId")
+                    b.Property<int?>("DisciplineId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FirstName")
@@ -125,9 +125,7 @@ namespace projetribardcotecolissongr3.Migrations
                 {
                     b.HasOne("Discipline", "Discipline")
                         .WithMany()
-                        .HasForeignKey("DisciplineId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DisciplineId");
 
                     b.Navigation("Discipline");
                 });
