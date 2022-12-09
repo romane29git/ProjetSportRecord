@@ -13,13 +13,13 @@ public class AthleteApiController : ControllerBase
         _context = context;
     }
 
-    // GET: api/StudentApi
+    // GET: api/AthleteApi
     public async Task<ActionResult<IEnumerable<Athlete>>> GetAthletes()
     {
         return await _context.Athletes.OrderBy(a => a.LastName).ToListAsync();
     }
 
-    //GET /api/StudentApi/{id}
+    //GET /api/AthletetApi/{id}
     //élève identifié par id
 
     [HttpGet("{id}")]
@@ -34,6 +34,17 @@ public class AthleteApiController : ControllerBase
             return NotFound();
         return athlete;
 
+    }
+
+    // POST: api/AthleteApi
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPost]
+    public async Task<ActionResult<Athlete>> PostStudent(Athlete athlete)
+    {
+        _context.Athletes.Add(athlete);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction(nameof(GetAthlete), new { id = athlete.Id }, athlete);
     }
 
 

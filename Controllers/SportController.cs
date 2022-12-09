@@ -12,7 +12,7 @@ public class SportController : Controller // not ControllerBase!
         _context = context;
     }
 
-    // GET: /Hello/
+    // GET: Sport
     public async Task<IActionResult> Index()
     {
         var sports = await _context.Sports
