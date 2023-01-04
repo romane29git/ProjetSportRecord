@@ -52,6 +52,20 @@ public class AthleteApiController : ControllerBase
         return CreatedAtAction(nameof(GetAthlete), new { id = athlete.Id }, athlete);
     }
 
+    // ...
+    // DELETE: api/AthleteApi/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteAthlete(int id)
+    {
+        var athlete = await _context.Athletes.FindAsync(id);
+        if (athlete == null)
+            return NotFound();
+
+        _context.Athletes.Remove(athlete);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
     
 
 
