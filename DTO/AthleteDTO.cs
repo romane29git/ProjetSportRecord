@@ -1,5 +1,3 @@
-// Data Transfer Object class
-
 public class AthleteDTO
 {
     public int Id { get; set; }
@@ -10,3 +8,5 @@ public class AthleteDTO
     public string Nationality { get; set; } = null!;
     public int DisciplineId { get; set; }
 }
+
+
