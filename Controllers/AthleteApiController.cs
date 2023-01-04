@@ -19,7 +19,7 @@ public class AthleteApiController : ControllerBase
         return await _context.Athletes.OrderBy(a => a.LastName).ToListAsync();
     }
 
-    //GET /api/AthletetApi/{id}
+    //GET /api/AthleteApi/{id}
     //élève identifié par id
 
     [HttpGet("{id}")]
@@ -37,7 +37,6 @@ public class AthleteApiController : ControllerBase
     }
 
     // POST: api/AthleteApi
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
     public async Task<ActionResult<Athlete>> PostAthlete(AthleteDTO athleteDTO)
     {
@@ -52,6 +51,10 @@ public class AthleteApiController : ControllerBase
 
         return CreatedAtAction(nameof(GetAthlete), new { id = athlete.Id }, athlete);
     }
+
+    
+
+
 
 
 
