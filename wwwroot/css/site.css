@@ -25,7 +25,6 @@ img {
   mask: var(--m);
   filter: grayscale();
   transition: .3s linear;
-  cursor: pointer;
 }
 
 img:hover {
