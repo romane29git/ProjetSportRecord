@@ -1,3 +1,7 @@
 curl -X POST -k -H 'Content-Type: application/json' -i https://localhost:7292/api/athleteapi/ --data '{"FirstName": "Renelle","LastName": "Lamote","Gender": "F", "BirthDate": "1979-12-14","Nationality": "France","Discipline":2}'
 
 curl -X DELETE -k -H 'Content-Type: application/json' -i https://localhost:7292/api/athleteapi/4
+
+curl -X PUT -k -H 'Content-Type: application/json' -i https://localhost:7292/api/athleteapi/1 --data '{"Id":"1", "LastName":"Powell", "FirstName":"Mike", "Gender":"H","BirthDate":"1963-11-10","Nationality":"USA","DisciplineId":"1"}'
+
+curl -X PUT -k -H 'Content-Type: application/json' -i https://localhost:7292/api/athleteapi/5 --data '{"Id":"5", "LastName":"Lamote", "FirstName":"Renelle", "Gender":"F","BirthDate":"1979-12-14","Nationality":"France","DisciplineId":"1"}'

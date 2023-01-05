@@ -68,7 +68,34 @@ public class AthleteApiController : ControllerBase
     }
     
 
+    // PUT: api/AthleteApi/5
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutAthlete(int id, Athlete athlete)
+    {
+        if (id != athlete.Id)
+            return BadRequest();
 
+        _context.Entry(athlete).State = EntityState.Modified;
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!AthleteExists(id))
+                return NotFound();
+            else
+                throw;
+        }
+        return NoContent();
+    }
+
+    // Returns true if a athlete with specified id already exists
+    private bool AthleteExists(int id)
+    {
+        return _context.Athletes.Any(a => a.Id == id);
+    }
 
 
 
