@@ -1,6 +1,13 @@
-html {
-  font-size: 14px;
+* {
+  margin: 0;
+  padding: 0;
 }
+
+html,
+body {
+  height: 100%;
+}
+
 
 @media (min-width: 768px) {
   html {
@@ -11,6 +18,7 @@ html {
 html {
   position: relative;
   min-height: 100%;
+  font-size: 14px;
 }
 
 
@@ -37,11 +45,11 @@ body {
   margin-bottom: 60px;
   margin: 0;
   background: #e7dad8;
-  /* display: grid; -> autre disposition c'est pas incr */
   min-height: 100vh;
   grid-auto-flow: column;
   place-content: center;
   gap: 40px;
+
 }
 
 footer {
@@ -67,4 +75,16 @@ a:hover {
 
 .description {
   font-style: italic;
+}
+
+#gauche {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+#droite {
+  width: 50%;
+  height: 100%;
+  float: left;
 }

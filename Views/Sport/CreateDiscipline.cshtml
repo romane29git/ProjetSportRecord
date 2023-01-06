@@ -1,21 +1,24 @@
-@model Sport
+@model Discipline
 
 @{
-    ViewData["Title"] = "Ajouter un sport";
-    Sport sport = (Sport)ViewData["Sport"]!;
+    ViewData["Title"] = "Ajouter une discipline";
+    Discipline discipline = (Discipline)ViewData["Discipline"]!;
 }
 
-<h2>Ajouter un sport</h2>
+@* ça marche pas ça renvoi sur une page introuvable... encore *@
+
+<h2>Ajouter une discipline</h2>
 <hr />
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="CreateDiscipline">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label">Indiquez le sport ci-dessous</label>
+                <label asp-for="Name" class="control-label">Indiquez la discipline ci-dessous</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
+
             </div>
 
             <div class="form-group">
