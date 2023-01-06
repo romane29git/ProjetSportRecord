@@ -1,0 +1,25 @@
+@model IEnumerable<Discipline>
+
+@{
+    ViewData["Title"] = "Disciplines";
+}
+
+<h2>Listes des disciplines</h2>
+
+<!-- <div>
+    <a asp-action="Create">Ajouter une discipline</a>
+</div> -->
+
+<table class="table">
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
