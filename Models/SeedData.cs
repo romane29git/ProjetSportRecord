@@ -37,6 +37,13 @@ public class SeedData
                 Sport = athletisme
             };
 
+            Discipline m200 = new Discipline
+            {
+                Name = "200 mètres",
+                Description = "Le 200 mètres est une épreuve d'athlétisme consistant à parcourir un demi-tour d'une piste d'athlétisme de 400 m.",
+                Sport = athletisme
+            };
+
             //     context.Disciplines.AddRange(
             //        brasse200,
             //        sautLongueur
