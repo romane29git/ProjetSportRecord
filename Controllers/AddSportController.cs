@@ -9,16 +9,16 @@ public class AddSportController : Controller
         _context = context;
     }
 
-    // // POST: Sport/Create
-    // [HttpPost]
-    // [ValidateAntiForgeryToken]
-    // public async Task<IActionResult> Create([Bind("Name")] Sport sport)
-    // {
-    //     // Create new sport in DB
-    //     _context.Add(sport);
-    //     await _context.SaveChangesAsync();
+    // POST: Sport/Create
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(Sport sport)
+    {
+        // Create new sport in DB
+        _context.Add(sport);
+        await _context.SaveChangesAsync();
 
-    //     // Redirect to student details
-    //     //return RedirectToAction("Details", "Student", new RouteValueDictionary { { "id", enrollment.StudentId } });
-    // }
+        // Redirect to student details
+        return RedirectToAction("Sport");
+    }
 }
