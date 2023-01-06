@@ -12,6 +12,12 @@ public class SportController : Controller // not ControllerBase!
         _context = context;
     }
 
+   // GET: Sport
+    public async Task<IActionResult> Create()
+    {
+        return View();
+    }
+
     // GET: Sport
     public async Task<IActionResult> Index()
     {
@@ -37,6 +43,19 @@ public class SportController : Controller // not ControllerBase!
         }
         return View(sports);
     }
+
+    // // POST: Sport/Create
+    // [HttpPost]
+    // [ValidateAntiForgeryToken]
+    // public async Task<IActionResult> Create(Sport sport)
+    // {
+    //     // Create new sport in DB
+    //     _context.Add(sport);
+    //     await _context.SaveChangesAsync();
+
+    //     // Redirect to student details
+    //     return RedirectToAction("Sport");
+    // }
 
 
 }
