@@ -12,19 +12,6 @@ namespace projetribardcotecolissongr3.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Sports",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Sports", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Disciplines",
                 columns: table => new
                 {
@@ -37,12 +24,19 @@ namespace projetribardcotecolissongr3.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Disciplines", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Disciplines_Sports_SportId",
-                        column: x => x.SportId,
-                        principalTable: "Sports",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sports",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sports", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,9 +68,9 @@ namespace projetribardcotecolissongr3.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    DisciplineId = table.Column<int>(type: "INTEGER", nullable: false),
+                    DisciplineId = table.Column<int>(type: "INTEGER", nullable: true),
                     Performance = table.Column<string>(type: "TEXT", nullable: false),
-                    AthleteId = table.Column<int>(type: "INTEGER", nullable: false),
+                    AthleteId = table.Column<int>(type: "INTEGER", nullable: true),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Location = table.Column<string>(type: "TEXT", nullable: false)
                 },
@@ -87,25 +81,18 @@ namespace projetribardcotecolissongr3.Migrations
                         name: "FK_Records_Athletes_AthleteId",
                         column: x => x.AthleteId,
                         principalTable: "Athletes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Records_Disciplines_DisciplineId",
                         column: x => x.DisciplineId,
                         principalTable: "Disciplines",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Athletes_DisciplineId",
                 table: "Athletes",
                 column: "DisciplineId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Disciplines_SportId",
-                table: "Disciplines",
-                column: "SportId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Records_AthleteId",
@@ -125,13 +112,13 @@ namespace projetribardcotecolissongr3.Migrations
                 name: "Records");
 
             migrationBuilder.DropTable(
+                name: "Sports");
+
+            migrationBuilder.DropTable(
                 name: "Athletes");
 
             migrationBuilder.DropTable(
                 name: "Disciplines");
-
-            migrationBuilder.DropTable(
-                name: "Sports");
         }
     }
 }

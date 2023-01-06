@@ -21,7 +21,7 @@ public class DisciplineController : Controller // not ControllerBase!
     {
         var disciplines = await _context.Disciplines
         .OrderBy(d => d.Name)
-        .Where(d => d.SportId == 1)
+        .Where(d => d.SportId == 2)
         .ToListAsync();
 
         return View(disciplines);

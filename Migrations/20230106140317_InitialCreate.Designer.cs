@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace projetribardcotecolissongr3.Migrations
 {
     [DbContext(typeof(SportRecordContext))]
-    [Migration("20221209144627_InitialCreate")]
+    [Migration("20230106140317_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.1");
 
             modelBuilder.Entity("Athlete", b =>
                 {
@@ -72,8 +72,6 @@ namespace projetribardcotecolissongr3.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SportId");
-
                     b.ToTable("Disciplines");
                 });
 
@@ -83,13 +81,13 @@ namespace projetribardcotecolissongr3.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AthleteId")
+                    b.Property<int?>("AthleteId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("DisciplineId")
+                    b.Property<int?>("DisciplineId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Location")
@@ -133,39 +131,19 @@ namespace projetribardcotecolissongr3.Migrations
                     b.Navigation("Discipline");
                 });
 
-            modelBuilder.Entity("Discipline", b =>
-                {
-                    b.HasOne("Sport", "Sport")
-                        .WithMany("Disciplines")
-                        .HasForeignKey("SportId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Sport");
-                });
-
             modelBuilder.Entity("Record", b =>
                 {
                     b.HasOne("Athlete", "Athlete")
                         .WithMany()
-                        .HasForeignKey("AthleteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AthleteId");
 
                     b.HasOne("Discipline", "Discipline")
                         .WithMany()
-                        .HasForeignKey("DisciplineId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DisciplineId");
 
                     b.Navigation("Athlete");
 
                     b.Navigation("Discipline");
-                });
-
-            modelBuilder.Entity("Sport", b =>
-                {
-                    b.Navigation("Disciplines");
                 });
 #pragma warning restore 612, 618
         }

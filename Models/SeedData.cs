@@ -27,26 +27,27 @@ public class SeedData
             {
                 Name = "200m Brasse",
                 Description = "Cette épreuve consiste à nager 200 mètres en brasse.",
-                Sport = natation
+                SportId = 1
             };
 
             Discipline sautLongueur = new Discipline
             {
                 Name = "Saut en longueur",
                 Description = "Le saut en longueur est une épreuve d'athlétisme consistant à couvrir la plus longue distance possible en sautant, avec de l'élan, à partir d'une marque fixe.",
-                Sport = athletisme
+                SportId = 2
             };
 
             Discipline m200 = new Discipline
             {
                 Name = "200 mètres",
                 Description = "Le 200 mètres est une épreuve d'athlétisme consistant à parcourir un demi-tour d'une piste d'athlétisme de 400 m.",
-                Sport = athletisme
+                SportId = 2
             };
 
             //     context.Disciplines.AddRange(
             //        brasse200,
-            //        sautLongueur
+            //        sautLongueur,
+            //        m200
             //    );
 
             //add atletes
@@ -98,9 +99,6 @@ public class SeedData
             //        brasse200F,
             //        sautLongueurH
             //    );
-
-
-
 
             context.SaveChanges();
 
