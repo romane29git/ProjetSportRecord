@@ -12,11 +12,12 @@ public class SportController : Controller // not ControllerBase!
         _context = context;
     }
 
-   // GET: Sport
-    public async Task<IActionResult> Create()
+    // GET: Sport
+    public IActionResult Create()
     {
         return View();
     }
+
 
     // GET: Sport
     public async Task<IActionResult> Index()
@@ -57,6 +58,20 @@ public class SportController : Controller // not ControllerBase!
     //     return RedirectToAction("Sport");
     // }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create([Bind("Id,Name")] Sport sport)
+    {
+        // Apply model validation rules
+        if (ModelState.IsValid)
+        {
+            _context.Add(sport);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        // At this point, something failed: redisplay form
+        return View(sport);
+    }
 
 }
 
