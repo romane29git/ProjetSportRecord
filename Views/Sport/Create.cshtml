@@ -13,13 +13,13 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label">Sport</label>
+                <label asp-for="Name" class="control-label">Indiquez le sport ci-dessous</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             
             <div class="form-group">
-                <input type="submit" value="Ajouter" class="btn btn-primary" />
+                <input type="submit" value="Ajouter" class="btn btn-light" />
             </div>
         </form>
     </div>
