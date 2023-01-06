@@ -36,7 +36,7 @@ img:hover {
 body {
   margin-bottom: 60px;
   margin: 0;
-  background: #8b635c;
+  background: #e7dad8;
   /* display: grid; -> autre disposition c'est pas incr */
   min-height: 100vh;
   grid-auto-flow: column;
