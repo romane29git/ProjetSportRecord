@@ -6,9 +6,9 @@
 
 <h2>Listes des disciplines</h2>
 
-<!-- <div>
-    <a asp-action="Create">Ajouter une discipline</a>
-</div> -->
+<div>
+    <a asp-action="Create" class="add">Ajouter une discipline</a>
+</div>
 
 <table class="table">
 
@@ -17,9 +17,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    <a asp-action="Record" asp-route-id="@item.Id" asp-controller="Sport" class="sports">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </a>
                 </td>
             </tr>
         }
+
+
     </tbody>
 </table>

@@ -47,3 +47,24 @@ body {
 footer {
   color: rgb(147, 6, 147);
 }
+
+a:hover {
+  color: rgb(159, 135, 90);
+}
+
+.add {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: large;
+  color: rgb(20, 19, 18);
+}
+
+.sports {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(68, 60, 44);
+}
+
+.description {
+  font-style: italic;
+}

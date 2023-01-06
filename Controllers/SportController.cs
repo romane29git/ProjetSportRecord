@@ -46,6 +46,26 @@ public class SportController : Controller // not ControllerBase!
     }
 
 
+    public async Task<IActionResult> Record(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var record = await _context.Disciplines
+        .Where(a => a.Id == id)
+        .FirstOrDefaultAsync();
+
+        if (record == null)
+        {
+            return NotFound();
+        }
+
+        return View(record);
+    }
+
+
 
     // POST: Sport/Create
     [HttpPost]

@@ -7,8 +7,9 @@
 <h2>Listes des sports</h2>
 
 <div>
-    <a asp-action="Create">Ajouter un sport</a>
+    <a asp-action="Create" class="add">Ajouter un sport</a>
 </div>
+
 
 <table class="table">
 
@@ -17,12 +18,14 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    <a asp-action="Disciplines" asp-route-id="@item.Id">Les disciplines</a>
+                    <a asp-action="Disciplines" asp-route-id="@item.Id" class="sports">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </a>
                 </td>
             </tr>
+
+            //voir pour les images appeler avec images/machin.jpg + mettre dans la bdd + dans le dossier images de wwroot
+
         }
     </tbody>
 </table>

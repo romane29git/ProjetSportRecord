@@ -1,0 +1,29 @@
+@model Discipline
+
+@{
+    ViewData["Title"] = "Record";
+}
+
+@* Ajout de la discipline et sa description *@
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+<p class="description">
+    @Html.DisplayFor(model => model.Description)
+</p>
+
+@* Ajout de la discipline et sa description *@
+
+<tbody>
+    <dl class="row">
+        @* <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Performance)
+            </dt>
+            <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Performance)
+            </dd> *@
+
+        @* Il faut aller chercher le record et l'athlète mais je sais pas comment vu qu'on est dans discipline donc il
+            veut pas *@
+
+    </dl>
+</tbody>
