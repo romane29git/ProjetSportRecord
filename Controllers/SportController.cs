@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-
 public class SportController : Controller // not ControllerBase!
 {
 
@@ -27,7 +26,27 @@ public class SportController : Controller // not ControllerBase!
         return View(sports);
     }
 
-    
+    public async Task<IActionResult> Disciplines(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        // Recherche des disciplines contenues dans ce sport
+        var discipline = await _context.Disciplines
+            .Where(s => s.SportId == id)
+            .ToListAsync();
+        if (discipline == null)
+        {
+            return NotFound();
+        }
+
+        return View(discipline);
+    }
+
+
+
     // POST: Sport/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
