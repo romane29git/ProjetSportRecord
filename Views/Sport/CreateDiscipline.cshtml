@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Ajouter une discipline";
-    int sportId = (int)ViewData["idSport"]!;
+    @* int sportId = (int)ViewData["idSport"]!; *@
 }
 
 <h2>Ajouter une discipline</h2>
@@ -13,11 +13,18 @@
         <form asp-action="CreateDiscipline">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label">Nom de la discipline</label>
+                <label asp-for="Name" class="control-label">Indiquez le nom de la discipline</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="SportId" value="2" />
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Entrez une courte description de la
+                    discipline</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="SportId" value="72" />
+            @* <input type="hidden" asp-for="Id" value="28" /> *@
             <div class="form-group">
                 <input type="submit" value="Ajouter" class="btn btn-primary" />
             </div>
@@ -31,5 +38,5 @@
 }
 
 <div>
-    <a asp-action="Disciplines" asp-route-id="@sportId">Retour</a>
+    <a asp-action="Disciplines" asp-route-id="2">Retour</a>
 </div>

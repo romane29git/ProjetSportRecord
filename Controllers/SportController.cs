@@ -91,7 +91,7 @@ public class SportController : Controller // not ControllerBase!
     // POST: Sport/CreateDiscipline
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> CreateDiscipline([Bind("Id,Name,SportId")] Discipline discipline)
+    public async Task<IActionResult> CreateDiscipline([Bind("Id,Name,Description,SportId")] Discipline discipline)
     {
         // Apply model validation rules
         if (ModelState.IsValid)
