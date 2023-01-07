@@ -48,10 +48,6 @@ public class SeedData
             };
 
 
-
-
-
-
             //add disciplines
 
             // Natation
@@ -260,6 +256,37 @@ public class SeedData
                 Discipline = brasse200,
                 Gender = 'F'
             };
+            //APNEE
+            Athlete johannaNordblad = new Athlete
+            {
+                FirstName = "Johanna",
+                LastName = "Nordblad",
+                BirthDate = DateTime.Parse("1992-07-20"),
+                Nationality = "Finlande",
+                Discipline = distanceGlace,
+                Gender = 'F'
+            };
+
+            Athlete tanyaStreeter = new Athlete
+            {
+                FirstName = "Tanya",
+                LastName = "Streeter",
+                BirthDate = DateTime.Parse("1986-07-26"),
+                Nationality = "USA",
+                Discipline = profonfeur,
+                Gender = 'F'
+            };
+
+            Athlete brankoPetrovic = new Athlete
+            {
+                FirstName = "Branko",
+                LastName = "Petrović",
+                BirthDate = DateTime.Parse("1954-07-26"),
+                Nationality = "Serbie",
+                Discipline = duree,
+                Gender = 'H'
+            };
+            //        
 
 
 
@@ -281,6 +308,37 @@ public class SeedData
                 Date = DateTime.Parse("2014-03-22"),
                 Location = "Minneapolis"
             };
+
+            //APNEE
+            //dutance glace, ist et duree
+            Record distanceGlaceF = new Record
+            {
+                Discipline = distanceGlace,
+                Performance = "103m",
+                Athlete = johannaNordblad,
+                Date = DateTime.Parse("2021-03-19"),
+                Location = "London"
+            };
+
+            Record profondeurF = new Record
+            {
+                Discipline = profonfeur,
+                Performance = "160m",
+                Athlete = tanyaStreeter,
+                Date = DateTime.Parse("2002-08-19"),
+                Location = "Paris"
+            };
+
+            Record dureeApneeH = new Record
+            {
+                Discipline = duree,
+                Performance = "11 min 54 s",
+                Athlete = brankoPetrovic,
+                Date = DateTime.Parse("2014-08-19"),
+                Location = "Berlin"
+            };
+
+
 
 
             // context.Disciplines.AddRange(
@@ -324,16 +382,22 @@ public class SeedData
             //  );
 
 
-            // context.Athletes.AddRange(
+            context.Athletes.AddRange(
             //        mikePowell,
             //        emmaReaney,
+            // johannaNordblad,
+            // tanyaStreeter,
+            // brankoPetrovic
+            );
 
-            // );
+            context.Records.AddRange(
+           //        brasse200F,
+           //        sautLongueurH,
+           // dureeApneeH,
+           // profondeurF,
+           // distanceGlaceF
 
-            //     context.Records.AddRange(
-            //        brasse200F,
-            //        sautLongueurH
-            //    );
+           );
 
             context.SaveChanges();
 
