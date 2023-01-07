@@ -2,12 +2,10 @@
 
 @{
     ViewData["Title"] = "Ajouter une discipline";
-    Discipline discipline = (Discipline)ViewData["Discipline"]!;
+    Sport sport = (Sport)ViewData["sport"]!;
 }
 
-@* ça marche pas ça renvoi sur une page introuvable... encore *@
-
-<h2>Ajouter une discipline</h2>
+<h2>Ajouter une sport</h2>
 <hr />
 
 <div class="row">
@@ -15,18 +13,23 @@
         <form asp-action="CreateDiscipline">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label">Indiquez la discipline ci-dessous</label>
+                <label asp-for="Name" class="control-label">Nom de la discipline</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
-
             </div>
-
+            <input type="hidden" asp-for="SportId" value="@sport.Id" />
             <div class="form-group">
-                <input type="submit" value="Ajouter" class="btn btn-light" />
+                @* <label asp-for="SportId" class="control-label">Sport</label> *@
+                <select asp-for="SportId" class="form-control" asp-items="ViewBag.SportId"></select>
+                <span asp-validation-for="SportId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enroll" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
+
 
 @section Scripts {
 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
