@@ -341,45 +341,45 @@ public class SeedData
 
 
 
-            context.Disciplines.AddRange(
-            brasse200,
-            sautLongueur,
-             m200,
-            souleveTerre,
-            developpeCouche,
-            squat,
-            bicepsCurl,
-            distanceM,
-            distanceL,
-            distanceXL,
-            ironMan,
-            routeRecordHeure,
-            routeKmPiste,
-            cycloCrossHeure,
-            duree,
-            distance,
-            profonfeur,
-            distanceGlace,
-            saut,
-            vitesse,
-            nbTitre,
-            essaiCarriere,
-            essaiSaison,
-            championnatMonde
-            );
+            // context.Disciplines.AddRange(
+            // brasse200,
+            // sautLongueur,
+            //  m200,
+            // souleveTerre,
+            // developpeCouche,
+            // squat,
+            // bicepsCurl,
+            // distanceM,
+            // distanceL,
+            // distanceXL,
+            // ironMan,
+            // routeRecordHeure,
+            // routeKmPiste,
+            // cycloCrossHeure,
+            // duree,
+            // distance,
+            // profonfeur,
+            // distanceGlace,
+            // saut,
+            // vitesse,
+            // nbTitre,
+            // essaiCarriere,
+            // essaiSaison,
+            // championnatMonde
+            // );
 
 
 
-            context.Sports.AddRange(
-            natation,
-            athletisme,
-            musculation,
-            triathlon,
-            cyclisme,
-            apnee,
-            ski,
-            rugby
-             );
+            // context.Sports.AddRange(
+            // natation,
+            // athletisme,
+            // musculation,
+            // triathlon,
+            // cyclisme,
+            // apnee,
+            // ski,
+            // rugby
+            //  );
 
 
             context.Athletes.AddRange(
