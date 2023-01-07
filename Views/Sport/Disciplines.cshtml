@@ -1,13 +1,39 @@
+@using System.Text.RegularExpressions;
 @model IEnumerable<Discipline>
 
 @{
     ViewData["Title"] = "Disciplines";
+    Sport sport = (Sport)ViewData["Sport"]!;
+}
+
+@{
+    string url = "https://localhost:7292/Sport/Disciplines/2";
+
+    // Define a regular expression pattern to match the URL
+    string pattern = @"https://localhost:7292/Sport/Disciplines/(\d+)";
+
+    // Create a Regex object
+    Regex regex = new Regex(pattern);
+
+    // Try to match the URL with the pattern
+    Match match = regex.Match(url);
+
+    // Check if the match was successful
+    if (match.Success)
+    {
+        // Extract the number from the URL
+        string idSport = match.Groups[1].Value;
+    }
 }
 
 <h2>Listes des disciplines</h2>
 
+
+
 <div>
-    <a asp-action="CreateDiscipline" class="add">Ajouter une discipline</a> @*le truc ne marche pas ^^*@
+    <a asp-action="CreateDiscipline" asp-route-id="@Request.RawUrl" class="add">Ajouter une discipline</a> @*le truc ne
+        marche
+        pas ^^*@
 </div>
 
 <table class="table">
