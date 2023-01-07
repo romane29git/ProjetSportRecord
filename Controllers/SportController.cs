@@ -28,6 +28,7 @@ public class SportController : Controller // not ControllerBase!
 
     public async Task<IActionResult> Disciplines(int? id)
     {
+        ViewData["idSport"] = id;
         if (id == null)
         {
             return NotFound();
@@ -44,7 +45,6 @@ public class SportController : Controller // not ControllerBase!
 
         return View(discipline);
     }
-
 
     public async Task<IActionResult> Record(int? id)
     {
@@ -65,8 +65,6 @@ public class SportController : Controller // not ControllerBase!
         return View(record);
     }
 
-
-
     // POST: Sport/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -83,43 +81,18 @@ public class SportController : Controller // not ControllerBase!
         return View(sport);
     }
 
-
-
-    // GET: Sport/CreateDiscipline?SportId=5
-    public async Task<IActionResult> CreateDiscipline(int? sportId)
+    // GET: Sport/CreateDiscipline/5
+    public IActionResult CreateDiscipline(int? id)
     {
-        if (sportId == null)
-        {
-            return NotFound();
-        }
-
-        // Lookup sports by id
-        var sport = await _context.Sports.FindAsync(sportId);
-        if (sport == null)
-        {
-            return NotFound();
-        }
-
-        // Retrieve list of sports existing
-        var sportsQuery = from s in _context.Sports
-                          select s;
-
-        var availableSports = sportsQuery.ToList();
-
-        ViewData["Sports"] = sport;
-        //ViewData["CourseId"] = new SelectList(availableCourses, "Id", "Title");
+        ViewData["idSport"] = id;
         return View();
     }
-
-
 
     // POST: Sport/CreateDiscipline
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateDiscipline([Bind("Id,Name,SportId")] Discipline discipline)
     {
-
-
         // Apply model validation rules
         if (ModelState.IsValid)
         {
@@ -129,26 +102,6 @@ public class SportController : Controller // not ControllerBase!
         }
         // At this point, something failed: redisplay form
         return View(discipline);
-
-
-
-        // Lookup student and course
-        // var student = _context.Students.Find(enrollment.StudentId);
-        // var course = _context.Courses.Find(enrollment.CourseId);
-
-        // // Define student and course for new enrollment
-        // enrollment.Student = student!;
-        // enrollment.Course = course!;
-
-        // // Create new enrollment in DB
-        // _context.Add(enrollment);
-        // await _context.SaveChangesAsync();
-
-        // // Redirect to student details
-        // return RedirectToAction("Details", "Student", new RouteValueDictionary { { "id", enrollment.StudentId } });
-
-
-
     }
 
 }
