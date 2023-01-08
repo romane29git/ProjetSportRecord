@@ -38,19 +38,27 @@ public class AthleteApiController : ControllerBase
 
     // POST: api/AthleteApi
     [HttpPost]
-    public async Task<ActionResult<Athlete>> PostAthlete(AthleteDTO athleteDTO)
+    public async Task<ActionResult<Athlete>> PostAthlete(Athlete athlete)
     {
-        Athlete athlete = new Athlete(athleteDTO);
-
-        var discipline = _context.Disciplines.Find(athleteDTO.DisciplineId);
-
-        athlete.Discipline = discipline!;
-
         _context.Athletes.Add(athlete);
         await _context.SaveChangesAsync();
 
         return CreatedAtAction(nameof(GetAthlete), new { id = athlete.Id }, athlete);
     }
+    // Pour faire avec le DTO: 
+    // public async Task<ActionResult<Athlete>> PostAthlete(AthleteDTO athleteDTO)
+    // {
+    //     Athlete athlete = new Athlete(athleteDTO);
+
+    //     var discipline = _context.Disciplines.Find(athleteDTO.DisciplineId);
+
+    //     athlete.DisciplineId = discipline!;
+
+    //     _context.Athletes.Add(athlete);
+    //     await _context.SaveChangesAsync();
+
+    //     return CreatedAtAction(nameof(GetAthlete), new { id = athlete.Id }, athlete);
+    // }
 
     // ...
     // DELETE: api/AthleteApi/5

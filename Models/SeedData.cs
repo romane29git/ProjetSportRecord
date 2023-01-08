@@ -251,7 +251,7 @@ public class SeedData
                 LastName = "Powell",
                 BirthDate = DateTime.Parse("1963-11-10"),
                 Nationality = "USA",
-                Discipline = sautLongueur,
+                DisciplineId = sautLongueur.Id,
                 Gender = 'H'
             };
 
@@ -261,7 +261,7 @@ public class SeedData
                 LastName = "Reaney",
                 BirthDate = DateTime.Parse("1992-10-20"),
                 Nationality = "USA",
-                Discipline = brasse200,
+                DisciplineId = brasse200.Id,
                 Gender = 'F'
             };
             //APNEE
@@ -271,7 +271,7 @@ public class SeedData
                 LastName = "Nordblad",
                 BirthDate = DateTime.Parse("1992-07-20"),
                 Nationality = "Finlande",
-                Discipline = distanceGlace,
+                DisciplineId = distanceGlace.Id,
                 Gender = 'F'
             };
 
@@ -281,7 +281,7 @@ public class SeedData
                 LastName = "Streeter",
                 BirthDate = DateTime.Parse("1986-07-26"),
                 Nationality = "USA",
-                Discipline = profonfeur,
+                DisciplineId = profonfeur.Id,
                 Gender = 'F'
             };
 
@@ -291,7 +291,7 @@ public class SeedData
                 LastName = "Petrović",
                 BirthDate = DateTime.Parse("1954-07-26"),
                 Nationality = "Serbie",
-                Discipline = duree,
+                DisciplineId = duree.Id,
                 Gender = 'H'
             };
             //        
@@ -344,9 +344,6 @@ public class SeedData
                 Date = DateTime.Parse("2014-08-19"),
                 Location = "Berlin"
             };
-
-
-
 
             //     context.Disciplines.AddRange(
             //     brasse200,

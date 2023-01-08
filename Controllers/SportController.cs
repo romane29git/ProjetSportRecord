@@ -29,6 +29,8 @@ public class SportController : Controller // not ControllerBase!
     public async Task<IActionResult> Disciplines(int? id)
     {
         ViewData["idSport"] = id;
+        var sport = await _context.Sports.FindAsync(id);
+        ViewData["nomSport"] = sport.Name;
         if (id == null)
         {
             return NotFound();
@@ -67,7 +69,12 @@ public class SportController : Controller // not ControllerBase!
     // GET: Sport/CreateDiscipline/5
     public IActionResult CreateDiscipline(int? id)
     {
+        _context.Database.OpenConnection();
         ViewData["idSport"] = id;
+        var disciplinesId = _context.Database.SqlQuery<int>($"SELECT Id FROM Disciplines")
+        .ToList();
+        var idMax = disciplinesId.Max();
+        ViewData["idMaxDiscipline"] = idMax;
         return View();
     }
 
@@ -91,6 +98,10 @@ public class SportController : Controller // not ControllerBase!
     public async Task<IActionResult> Record(int? id)
     {
         ViewData["idDiscipline"] = id;
+        var discipline = await _context.Disciplines.FindAsync(id);
+        ViewData["nomDiscipline"] = discipline.Name;
+        ViewData["descrDiscipline"] = discipline.Description;
+
         if (id == null)
         {
             return NotFound();
@@ -99,10 +110,11 @@ public class SportController : Controller // not ControllerBase!
         // Recherche des records de la discipline
         var record = await _context.Records
             .Where(s => s.DisciplineId == id)
+            .Include(s => s.Athlete)
             .ToListAsync();
         if (record == null)
         {
-            return NotFound();
+            return View(null);
         }
 
         return View(record);

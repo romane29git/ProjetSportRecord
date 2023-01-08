@@ -6,25 +6,49 @@
 
 <h2>Listes des sports</h2>
 <div>
-    <a asp-action="Create" class="add">Ajouter un sport</a>
+    <a asp-action="Create" class="btn-btn-info add">Ajouter un sport</a>
 </div>
 
+@{int i = 0;}
 
-<table class="table">
+<div class="row">
+    @foreach (var item in Model){
+        if (i%3 == 0){
+            @:</div><div class="row">
+        }
+        <div class="col-md-4">
+            <p class="titreCentre"><a asp-action="Disciplines" asp-route-id="@item.Id" class="sports">
+                            @Html.DisplayFor(modelItem => item.Name)</a> </p>
+            <p class="titreCentre"><a asp-action="Disciplines" asp-route-id="@item.Id" class="sports">
+                        <img src="images/@Html.DisplayFor(modelItem => item.Image)"></a></p>
+                    
+        </div>
+        i++;
+    }
+
+</div>
+@* <table class="table">
 
     <tbody>
         @foreach (var item in Model)
         {
+
+            <head>
+                <tr>
+                    <td>
+                        <a asp-action="Disciplines" asp-route-id="@item.Id" class="sports">
+                            @Html.DisplayFor(modelItem => item.Name)</a>
+                    </td>
+                </tr>
+            </head>
             <tr>
                 <td>
                     <a asp-action="Disciplines" asp-route-id="@item.Id" class="sports">
-                        @Html.DisplayFor(modelItem => item.Name)
                         <img src="images/@Html.DisplayFor(modelItem => item.Image)">
                     </a>
                 </td>
             </tr>
-
-
+            @{counter = counter+1;}
         }
     </tbody>
-</table>
+</table> *@

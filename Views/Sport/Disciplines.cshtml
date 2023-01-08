@@ -6,12 +6,10 @@
     int sportId = (int)ViewData["idSport"]!;
 }
 
-<h2>Listes des disciplines</h2>
-@* afficher le nom du sport *@
-
+<h2>@ViewData["nomSport"]: les disciplines</h2>
 
 <div>
-    <a asp-action="CreateDiscipline" asp-route-id="@sportId" class="add">Ajouter une discipline</a>
+    <a asp-action="CreateDiscipline" asp-route-id="@sportId" class="add btn-btn-info">Ajouter une discipline</a>
 </div>
 
 <table class="table">

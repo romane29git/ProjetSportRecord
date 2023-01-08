@@ -32,6 +32,7 @@ img {
   -webkit-mask: var(--m);
   mask: var(--m);
   filter: grayscale();
+  width: 60%;
   transition: .3s linear;
 }
 
@@ -61,7 +62,7 @@ footer {
 }
 
 a:hover {
-  color: rgb(159, 135, 90);
+  color: rgb(34, 132, 171);
 }
 
 .add {
@@ -73,15 +74,15 @@ a:hover {
 
 .sports {
   font-size: medium;
-  text-transform: uppercase;
-  font-family: 'Gambetta', serif;
   /* letter-spacing: px; */
   transition: 700ms ease;
   font-variation-settings: "wght" 311;
   margin-bottom: 0.8rem;
-  color: rgb(120, 82, 44);
+  color: rgb(8, 107, 146);
   outline: none;
   text-align: center;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .description {
@@ -92,4 +93,8 @@ a:hover {
 .sports:hover {
   font-variation-settings: "wght" 582;
   letter-spacing: 1px;
+}
+
+.titreCentre {
+  text-align: center;
 }
