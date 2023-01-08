@@ -32,7 +32,8 @@ namespace projetribardcotecolissongr3.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false)
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Image = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -68,7 +69,7 @@ namespace projetribardcotecolissongr3.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    DisciplineId = table.Column<int>(type: "INTEGER", nullable: true),
+                    DisciplineId = table.Column<int>(type: "INTEGER", nullable: false),
                     Performance = table.Column<string>(type: "TEXT", nullable: false),
                     AthleteId = table.Column<int>(type: "INTEGER", nullable: true),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
@@ -82,11 +83,6 @@ namespace projetribardcotecolissongr3.Migrations
                         column: x => x.AthleteId,
                         principalTable: "Athletes",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Records_Disciplines_DisciplineId",
-                        column: x => x.DisciplineId,
-                        principalTable: "Disciplines",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -98,11 +94,6 @@ namespace projetribardcotecolissongr3.Migrations
                 name: "IX_Records_AthleteId",
                 table: "Records",
                 column: "AthleteId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Records_DisciplineId",
-                table: "Records",
-                column: "DisciplineId");
         }
 
         /// <inheritdoc />

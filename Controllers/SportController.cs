@@ -46,24 +46,7 @@ public class SportController : Controller // not ControllerBase!
         return View(discipline);
     }
 
-    public async Task<IActionResult> Record(int? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
 
-        var record = await _context.Disciplines
-        .Where(a => a.Id == id)
-        .FirstOrDefaultAsync();
-
-        if (record == null)
-        {
-            return NotFound();
-        }
-
-        return View(record);
-    }
 
     // POST: Sport/Create
     [HttpPost]
@@ -102,6 +85,27 @@ public class SportController : Controller // not ControllerBase!
         }
         // At this point, something failed: redisplay form
         return View(discipline);
+    }
+
+
+    public async Task<IActionResult> Record(int? id)
+    {
+        ViewData["idDiscipline"] = id;
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        // Recherche des records de la discipline
+        var record = await _context.Records
+            .Where(s => s.DisciplineId == id)
+            .ToListAsync();
+        if (record == null)
+        {
+            return NotFound();
+        }
+
+        return View(record);
     }
 
 }

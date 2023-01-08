@@ -10,41 +10,49 @@ public class SeedData
             Sport natation = new Sport
             {
                 Name = "Natation",
+                Image = "natation.jpg",
             };
 
             Sport athletisme = new Sport
             {
                 Name = "Athlétisme",
+                Image = "athle.jpg",
             };
 
             Sport musculation = new Sport
             {
                 Name = "Musculation",
+                Image = "muscu.jpg",
             };
 
             Sport triathlon = new Sport
             {
                 Name = "Triathlon",
+                Image = "triathlon.jpg",
             };
 
             Sport cyclisme = new Sport
             {
                 Name = "Cyclisme",
+                Image = "cyclisme.jpg",
             };
 
             Sport apnee = new Sport
             {
                 Name = "Apnée",
+                Image = "apnee.jpg",
             };
 
             Sport ski = new Sport
             {
                 Name = "Ski",
+                Image = "ski.jpg",
             };
 
             Sport rugby = new Sport
             {
                 Name = "Rugby",
+                Image = "rugby.jpg",
             };
 
 
@@ -293,7 +301,7 @@ public class SeedData
             //add record
             Record sautLongueurH = new Record
             {
-                Discipline = sautLongueur,
+                DisciplineId = 2,
                 Performance = "8,95 m",
                 Athlete = mikePowell,
                 Date = DateTime.Parse("1991-08-30"),
@@ -302,7 +310,7 @@ public class SeedData
 
             Record brasse200F = new Record
             {
-                Discipline = brasse200,
+                DisciplineId = 1,
                 Performance = "2min 04sec 06",
                 Athlete = emmaReaney,
                 Date = DateTime.Parse("2014-03-22"),
@@ -310,10 +318,9 @@ public class SeedData
             };
 
             //APNEE
-            //dutance glace, ist et duree
             Record distanceGlaceF = new Record
             {
-                Discipline = distanceGlace,
+                DisciplineId = 18,
                 Performance = "103m",
                 Athlete = johannaNordblad,
                 Date = DateTime.Parse("2021-03-19"),
@@ -322,7 +329,7 @@ public class SeedData
 
             Record profondeurF = new Record
             {
-                Discipline = profonfeur,
+                DisciplineId = 17,
                 Performance = "160m",
                 Athlete = tanyaStreeter,
                 Date = DateTime.Parse("2002-08-19"),
@@ -331,7 +338,7 @@ public class SeedData
 
             Record dureeApneeH = new Record
             {
-                Discipline = duree,
+                DisciplineId = 15,
                 Performance = "11 min 54 s",
                 Athlete = brankoPetrovic,
                 Date = DateTime.Parse("2014-08-19"),
@@ -341,63 +348,62 @@ public class SeedData
 
 
 
-            // context.Disciplines.AddRange(
-            // brasse200,
-            // sautLongueur,
-            //  m200,
-            // souleveTerre,
-            // developpeCouche,
-            // squat,
-            // bicepsCurl,
-            // distanceM,
-            // distanceL,
-            // distanceXL,
-            // ironMan,
-            // routeRecordHeure,
-            // routeKmPiste,
-            // cycloCrossHeure,
-            // duree,
-            // distance,
-            // profonfeur,
-            // distanceGlace,
-            // saut,
-            // vitesse,
-            // nbTitre,
-            // essaiCarriere,
-            // essaiSaison,
-            // championnatMonde
-            // );
+            //     context.Disciplines.AddRange(
+            //     brasse200,
+            //     sautLongueur,
+            //     m200,
+            //     souleveTerre,
+            //     developpeCouche,
+            //     squat,
+            //     bicepsCurl,
+            //     distanceM,
+            //     distanceL,
+            //     distanceXL,
+            //     ironMan,
+            //     routeRecordHeure,
+            //     routeKmPiste,
+            //     cycloCrossHeure,
+            //     duree,
+            //     distance,
+            //     profonfeur,
+            //     distanceGlace,
+            //     saut,
+            //     vitesse,
+            //     nbTitre,
+            //     essaiCarriere,
+            //     essaiSaison,
+            //     championnatMonde
+            //     );
 
 
 
-            // context.Sports.AddRange(
-            // natation,
-            // athletisme,
-            // musculation,
-            // triathlon,
-            // cyclisme,
-            // apnee,
-            // ski,
-            // rugby
-            //  );
+            //     context.Sports.AddRange(
+            //     natation,
+            //     athletisme,
+            //     musculation,
+            //     triathlon,
+            //     cyclisme,
+            //     apnee,
+            //     ski,
+            //     rugby
+            //      );
 
 
-            context.Athletes.AddRange(
-            //        mikePowell,
-            //        emmaReaney,
-            // johannaNordblad,
-            // tanyaStreeter,
-            // brankoPetrovic
-            );
+            //     context.Athletes.AddRange(
+            //            mikePowell,
+            //            emmaReaney,
+            //     johannaNordblad,
+            //     tanyaStreeter,
+            //     brankoPetrovic
+            //     );
 
-            context.Records.AddRange(
-           //        brasse200F,
-           //        sautLongueurH,
-           // dureeApneeH,
-           // profondeurF,
-           // distanceGlaceF
-
-           );
+            //     context.Records.AddRange(
+            //         brasse200F,
+            //         sautLongueurH,
+            //         dureeApneeH,
+            //         profondeurF,
+            //         distanceGlaceF
+            //    );
 
             context.SaveChanges();
 

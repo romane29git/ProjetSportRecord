@@ -44,12 +44,16 @@ img:hover {
 body {
   margin-bottom: 60px;
   margin: 0;
-  background: #e7dad8;
+  /* background: #e7dad8; */
   min-height: 100vh;
   grid-auto-flow: column;
   place-content: center;
   gap: 40px;
 
+}
+
+tbody {
+  border-color: white;
 }
 
 footer {
@@ -68,23 +72,24 @@ a:hover {
 }
 
 .sports {
-  text-decoration: none;
-  font-weight: bold;
-  color: rgb(68, 60, 44);
+  font-size: medium;
+  text-transform: uppercase;
+  font-family: 'Gambetta', serif;
+  /* letter-spacing: px; */
+  transition: 700ms ease;
+  font-variation-settings: "wght" 311;
+  margin-bottom: 0.8rem;
+  color: rgb(120, 82, 44);
+  outline: none;
+  text-align: center;
 }
 
 .description {
   font-style: italic;
 }
 
-#gauche {
-  width: 50%;
-  height: 100%;
-  float: left;
-}
 
-#droite {
-  width: 50%;
-  height: 100%;
-  float: left;
+.sports:hover {
+  font-variation-settings: "wght" 582;
+  letter-spacing: 1px;
 }

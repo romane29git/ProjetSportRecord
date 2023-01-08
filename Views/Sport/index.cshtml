@@ -5,7 +5,6 @@
 }
 
 <h2>Listes des sports</h2>
-
 <div>
     <a asp-action="Create" class="add">Ajouter un sport</a>
 </div>
@@ -20,11 +19,11 @@
                 <td>
                     <a asp-action="Disciplines" asp-route-id="@item.Id" class="sports">
                         @Html.DisplayFor(modelItem => item.Name)
+                        <img src="images/@Html.DisplayFor(modelItem => item.Image)">
                     </a>
                 </td>
             </tr>
 
-            //voir pour les images appeler avec images/machin.jpg + mettre dans la bdd + dans le dossier images de wwroot
 
         }
     </tbody>

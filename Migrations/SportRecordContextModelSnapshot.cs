@@ -84,7 +84,7 @@ namespace projetribardcotecolissongr3.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("DisciplineId")
+                    b.Property<int>("DisciplineId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Location")
@@ -99,8 +99,6 @@ namespace projetribardcotecolissongr3.Migrations
 
                     b.HasIndex("AthleteId");
 
-                    b.HasIndex("DisciplineId");
-
                     b.ToTable("Records");
                 });
 
@@ -109,6 +107,9 @@ namespace projetribardcotecolissongr3.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -134,13 +135,7 @@ namespace projetribardcotecolissongr3.Migrations
                         .WithMany()
                         .HasForeignKey("AthleteId");
 
-                    b.HasOne("Discipline", "Discipline")
-                        .WithMany()
-                        .HasForeignKey("DisciplineId");
-
                     b.Navigation("Athlete");
-
-                    b.Navigation("Discipline");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,15 +1,36 @@
-@model Discipline
+@model IEnumerable<Record>
+
 
 @{
     ViewData["Title"] = "Record";
 }
 
-@* Ajout de la discipline et sa description *@
+@* Ajout de la discipline et sa description et du record *@
 
-<h2>@Html.DisplayFor(model => model.Name)</h2>
-<p class="description">
-    @Html.DisplayFor(model => model.Description)
-</p>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+
+            @Html.DisplayFor(modelItem => item.Performance)
+
+        </td>
+    </tr>
+}
+
+@* <h2>@Html.DisplayFor(model => model.Performance)</h2>
+    <p class="description">
+    @Html.DisplayFor(model => model.DisciplineId)
+    </p> *@
+@* <input type="hidden" asp-for="SportId" /> *@
+
+
+@*
+
+    Sport/Record/3
+    200mètre
+
+*@
 
 @* Ajout de la discipline et sa description *@
 
