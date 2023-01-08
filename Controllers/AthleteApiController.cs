@@ -20,15 +20,14 @@ public class AthleteApiController : ControllerBase
     }
 
     //GET /api/AthleteApi/{id}
-    //élève identifié par id
+    //athlète identifié par id
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Athlete>> GetAthlete(int id)
     {
         var athlete = await _context.Athletes
         .Where(a => a.Id == id)
-        // .Include(a => a.Records)
-        .FirstOrDefaultAsync(); // ou SingleOrDefaultAsync()
+        .FirstOrDefaultAsync();
 
         if (athlete == null)
             return NotFound();
@@ -45,6 +44,7 @@ public class AthleteApiController : ControllerBase
 
         return CreatedAtAction(nameof(GetAthlete), new { id = athlete.Id }, athlete);
     }
+
     // Pour faire avec le DTO: 
     // public async Task<ActionResult<Athlete>> PostAthlete(AthleteDTO athleteDTO)
     // {
@@ -60,7 +60,7 @@ public class AthleteApiController : ControllerBase
     //     return CreatedAtAction(nameof(GetAthlete), new { id = athlete.Id }, athlete);
     // }
 
-    // ...
+
     // DELETE: api/AthleteApi/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAthlete(int id)

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-public class SportController : Controller // not ControllerBase!
+public class SportController : Controller
 {
 
     private readonly SportRecordContext _context;
@@ -55,14 +55,12 @@ public class SportController : Controller // not ControllerBase!
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("Id,Name")] Sport sport)
     {
-        // Apply model validation rules
         if (ModelState.IsValid)
         {
             _context.Add(sport);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        // At this point, something failed: redisplay form
         return View(sport);
     }
 
@@ -70,6 +68,8 @@ public class SportController : Controller // not ControllerBase!
     public IActionResult CreateDiscipline(int? id)
     {
         _context.Database.OpenConnection();
+        var sport = _context.Sports.Find(id);
+        ViewData["nomSport"] = sport.Name;
         ViewData["idSport"] = id;
         var disciplinesId = _context.Database.SqlQuery<int>($"SELECT Id FROM Disciplines")
         .ToList();

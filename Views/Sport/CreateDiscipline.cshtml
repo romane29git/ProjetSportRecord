@@ -9,7 +9,7 @@
     int newIdDiscipline = (int)ViewData["idMaxDiscipline"] + 1;
 }
 
-<h2>Ajouter une discipline</h2>
+<h2>@ViewData["nomSport"]: ajouter une discipline</h2>
 <hr />
 
 <div class="row">
@@ -29,6 +29,7 @@
             </div>
             <input type="hidden" asp-for="SportId" value="@sportId" />
             <input type="hidden" asp-for="Id" value="@newIdDiscipline" />
+            <br />
             <div class="form-group">
                 <input type="submit" value="Ajouter" class="btn btn-info" />
             </div>
@@ -42,5 +43,5 @@
 }
 
 <div>
-    <a asp-action="Disciplines" asp-route-id="2">Retour</a>
+    <a asp-action="Disciplines" asp-route-id="@sportId">Retour</a>
 </div>

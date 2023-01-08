@@ -3,12 +3,13 @@
 
 @{
     ViewData["Title"] = "Record";
+    var idDiscipline = ViewData["idDiscipline"];
 }
 
 <h2>@ViewData["nomDiscipline"]</h2>
 <p> @ViewData["descrDiscipline"]</p>
 
-<h2> Les records: </h2>
+<h2> Les records :</h2>
 
 <table class="table">
     @foreach (var item in Model)
@@ -71,54 +72,7 @@
 </table>
 
 
-@* <tr>
-    <td>
-    @Html.DisplayFor(modelItem => item.Performance)
-    </td>
-    <td>@Html.DisplayFor(modelItem => item.Athlete.FirstName)
-    @Html.DisplayFor(modelItem => item.Athlete.LastName)
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.Date.ToString().Split(new char[] {' '})[0])
-    </td>
-    <td>
-    @Html.DisplayFor(modelItem => item.Location)
-    </td>
-    </tr> *@
-
-
 @if (Model == null)
 {
     <p> Il n'y a pas de record enregistré</p>
 }
-
-@* <h2>@Html.DisplayFor(model => model.Performance)</h2>
-    <p class="description">
-    @Html.DisplayFor(model => model.DisciplineId)
-    </p> *@
-@* <input type="hidden" asp-for="SportId" /> *@
-
-
-@*
-
-    Sport/Record/3
-    200mètre
-
-*@
-
-@* Ajout de la discipline et sa description *@
-
-<tbody>
-    <dl class="row">
-        @* <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Performance)
-            </dt>
-            <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Performance)
-            </dd> *@
-
-        @* Il faut aller chercher le record et l'athlète mais je sais pas comment vu qu'on est dans discipline donc il
-            veut pas *@
-
-    </dl>
-</tbody>

@@ -55,6 +55,12 @@ public class SeedData
                 Image = "rugby.jpg",
             };
 
+            Sport genieLog = new Sport
+            {
+                Name = "Génie log",
+                Image = "info.jpg",
+            };
+
 
             //add disciplines
 
@@ -242,6 +248,20 @@ public class SeedData
                 SportId = 8
             };
 
+            //Génie log 
+            Discipline prof = new Discipline
+            {
+                Name = "Meilleur prof",
+                Description = "Ce record correspond aux meilleurs professeurs d'info de l'ENSC.",
+                SportId = 9
+            };
+
+            Discipline eleve = new Discipline
+            {
+                Name = "Meilleur site web",
+                Description = "Ce record correspond aux meilleurs sites web conçus par des élèves de l'ENSC.",
+                SportId = 9
+            };
 
 
             //add atletes
@@ -294,8 +314,26 @@ public class SeedData
                 DisciplineId = duree.Id,
                 Gender = 'H'
             };
-            //        
 
+            Athlete ceceroro = new Athlete
+            {
+                FirstName = "Célia et Romane",
+                LastName = "<3",
+                BirthDate = DateTime.Parse("2000-07-04"),
+                Nationality = "France",
+                DisciplineId = eleve.Id,
+                Gender = 'F'
+            };
+
+            Athlete baptiste = new Athlete
+            {
+                FirstName = "Baptiste",
+                LastName = "Pesquet",
+                BirthDate = DateTime.Parse("1976-12-27"),
+                Nationality = "France",
+                DisciplineId = prof.Id,
+                Gender = 'H'
+            };
 
 
             //add record
@@ -338,12 +376,44 @@ public class SeedData
 
             Record dureeApneeH = new Record
             {
-                DisciplineId = 15,
+                DisciplineId = apnee.Id,
                 Performance = "11 min 54 s",
                 Athlete = brankoPetrovic,
                 Date = DateTime.Parse("2014-08-19"),
                 Location = "Berlin"
             };
+
+            Record profH = new Record
+            {
+                DisciplineId = prof.Id,
+                Performance = "ne jamais être en retard",
+                Athlete = baptiste,
+                Date = DateTime.Parse("2022-12-05"),
+                Location = "Talence"
+            };
+
+            Record eleveF = new Record
+            {
+                DisciplineId = eleve.Id,
+                Performance = "22/20",
+                Athlete = ceceroro,
+                Date = DateTime.Parse("2022-01-08"),
+                Location = "Talence"
+            };
+
+            //     context.Sports.AddRange(
+            //     natation,
+            //     athletisme,
+            //     musculation,
+            //     triathlon,
+            //     cyclisme,
+            //     apnee,
+            //     ski,
+            //     rugby,
+            // genieLog,
+            //      );
+
+
 
             //     context.Disciplines.AddRange(
             //     brasse200,
@@ -369,21 +439,10 @@ public class SeedData
             //     nbTitre,
             //     essaiCarriere,
             //     essaiSaison,
-            //     championnatMonde
+            //     championnatMonde,
+            // eleve,
+            // prof
             //     );
-
-
-
-            //     context.Sports.AddRange(
-            //     natation,
-            //     athletisme,
-            //     musculation,
-            //     triathlon,
-            //     cyclisme,
-            //     apnee,
-            //     ski,
-            //     rugby
-            //      );
 
 
             //     context.Athletes.AddRange(
@@ -391,7 +450,9 @@ public class SeedData
             //            emmaReaney,
             //     johannaNordblad,
             //     tanyaStreeter,
-            //     brankoPetrovic
+            //     brankoPetrovic,
+            // ceceroro,
+            // baptiste,
             //     );
 
             //     context.Records.AddRange(
@@ -399,7 +460,9 @@ public class SeedData
             //         sautLongueurH,
             //         dureeApneeH,
             //         profondeurF,
-            //         distanceGlaceF
+            //         distanceGlaceF,
+            // profH,
+            // eleveF
             //    );
 
             context.SaveChanges();

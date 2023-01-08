@@ -9,7 +9,7 @@
 <h2>@ViewData["nomSport"]: les disciplines</h2>
 
 <div>
-    <a asp-action="CreateDiscipline" asp-route-id="@sportId" class="add btn-btn-info">Ajouter une discipline</a>
+    <a asp-action="CreateDiscipline" asp-route-id="@sportId" class="add btn btn-info">Ajouter une discipline</a>
 </div>
 
 <table class="table">
@@ -25,7 +25,8 @@
                 </td>
             </tr>
         }
-
-
     </tbody>
 </table>
+<div>
+    <a asp-action="Index">Retour</a>
+</div>
