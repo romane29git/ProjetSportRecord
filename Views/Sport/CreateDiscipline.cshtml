@@ -2,7 +2,11 @@
 
 @{
     ViewData["Title"] = "Ajouter une discipline";
-    @* int sportId = (int)ViewData["idSport"]!; *@
+    int sportId = (int)ViewData["idSport"]!;
+}
+
+@{
+    int newIdDiscipline = (int)ViewData["idMaxDiscipline"] + 1;
 }
 
 <h2>Ajouter une discipline</h2>
@@ -23,8 +27,8 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="SportId" value="72" />
-            @* <input type="hidden" asp-for="Id" value="28" /> *@
+            <input type="hidden" asp-for="SportId" value="@sportId" />
+            <input type="hidden" asp-for="Id" value="@newIdDiscipline" />
             <div class="form-group">
                 <input type="submit" value="Ajouter" class="btn btn-primary" />
             </div>

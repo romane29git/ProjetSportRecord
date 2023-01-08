@@ -69,7 +69,12 @@ public class SportController : Controller // not ControllerBase!
     // GET: Sport/CreateDiscipline/5
     public IActionResult CreateDiscipline(int? id)
     {
+        _context.Database.OpenConnection();
         ViewData["idSport"] = id;
+        var disciplinesId = _context.Database.SqlQuery<int>($"SELECT Id FROM Disciplines")
+        .ToList();
+        var idMax = disciplinesId.Max();
+        ViewData["idMaxDiscipline"] = idMax;
         return View();
     }
 
