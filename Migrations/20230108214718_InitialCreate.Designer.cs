@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace projetribardcotecolissongr3.Migrations
 {
     [DbContext(typeof(SportRecordContext))]
-    [Migration("20230108174602_InitialCreate")]
+    [Migration("20230108214718_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

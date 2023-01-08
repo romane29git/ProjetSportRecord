@@ -385,7 +385,7 @@ public class SeedData
 
             Record profH = new Record
             {
-                DisciplineId = prof.Id,
+                DisciplineId = 26,
                 Performance = "ne jamais être en retard",
                 Athlete = baptiste,
                 Date = DateTime.Parse("2022-12-05"),
@@ -394,76 +394,74 @@ public class SeedData
 
             Record eleveF = new Record
             {
-                DisciplineId = eleve.Id,
+                DisciplineId = 25,
                 Performance = "22/20",
                 Athlete = ceceroro,
                 Date = DateTime.Parse("2022-01-08"),
                 Location = "Talence"
             };
 
-            //     context.Sports.AddRange(
-            //     natation,
-            //     athletisme,
-            //     musculation,
-            //     triathlon,
-            //     cyclisme,
-            //     apnee,
-            //     ski,
-            //     rugby,
-            // genieLog,
-            //      );
+            context.Sports.AddRange(
+                natation,
+                athletisme,
+                musculation,
+                triathlon,
+                cyclisme,
+                apnee,
+                ski,
+                rugby,
+                genieLog
+            );
+
+            context.Disciplines.AddRange(
+                brasse200,
+                sautLongueur,
+                m200,
+                souleveTerre,
+                developpeCouche,
+                squat,
+                bicepsCurl,
+                distanceM,
+                distanceL,
+                distanceXL,
+                ironMan,
+                routeRecordHeure,
+                routeKmPiste,
+                cycloCrossHeure,
+                duree,
+                distance,
+                profonfeur,
+                distanceGlace,
+                saut,
+                vitesse,
+                nbTitre,
+                essaiCarriere,
+                essaiSaison,
+                championnatMonde,
+                eleve,
+                prof
+            );
 
 
+            context.Athletes.AddRange(
+                mikePowell,
+                emmaReaney,
+                johannaNordblad,
+                tanyaStreeter,
+                brankoPetrovic,
+                ceceroro,
+                baptiste
+            );
 
-            //     context.Disciplines.AddRange(
-            //     brasse200,
-            //     sautLongueur,
-            //     m200,
-            //     souleveTerre,
-            //     developpeCouche,
-            //     squat,
-            //     bicepsCurl,
-            //     distanceM,
-            //     distanceL,
-            //     distanceXL,
-            //     ironMan,
-            //     routeRecordHeure,
-            //     routeKmPiste,
-            //     cycloCrossHeure,
-            //     duree,
-            //     distance,
-            //     profonfeur,
-            //     distanceGlace,
-            //     saut,
-            //     vitesse,
-            //     nbTitre,
-            //     essaiCarriere,
-            //     essaiSaison,
-            //     championnatMonde,
-            // eleve,
-            // prof
-            //     );
-
-
-            //     context.Athletes.AddRange(
-            //            mikePowell,
-            //            emmaReaney,
-            //     johannaNordblad,
-            //     tanyaStreeter,
-            //     brankoPetrovic,
-            // ceceroro,
-            // baptiste,
-            //     );
-
-            //     context.Records.AddRange(
-            //         brasse200F,
-            //         sautLongueurH,
-            //         dureeApneeH,
-            //         profondeurF,
-            //         distanceGlaceF,
-            // profH,
-            // eleveF
-            //    );
+            context.Records.AddRange(
+                brasse200F,
+                sautLongueurH,
+                dureeApneeH,
+                profondeurF,
+                distanceGlaceF,
+                profH,
+                eleveF
+           );
 
             context.SaveChanges();
 
