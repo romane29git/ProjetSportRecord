@@ -7,11 +7,9 @@
 }
 
 <h2>@ViewData["nomSport"]: les disciplines</h2>
-@* afficher le nom du sport *@
-
 
 <div>
-    <a asp-action="CreateDiscipline" asp-route-id="@sportId" class="add">Ajouter une discipline</a>
+    <a asp-action="CreateDiscipline" asp-route-id="@sportId" class="add btn-btn-info">Ajouter une discipline</a>
 </div>
 
 <table class="table">
