@@ -44,7 +44,8 @@
                     @Html.DisplayFor(modelItem => item.Gender)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BirthDate)
+                    @Html.DisplayFor(modelItem => (item.BirthDate).ToString().Split(new char[] {' '})[0]) @*pour ne pas
+                        afficher l'heure *@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nationality)
