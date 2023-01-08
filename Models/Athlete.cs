@@ -19,7 +19,7 @@ public class Athlete
     [Display(Name = "Nationalité")]
     public string Nationality { get; set; } = null!;
 
-    public Discipline? Discipline { get; set; } = null!;
+    public int DisciplineId { get; set; }
 
     // Constructeur vide par défaut
     public Athlete() { }

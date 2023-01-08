@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace projetribardcotecolissongr3.Migrations
 {
     [DbContext(typeof(SportRecordContext))]
-    [Migration("20230108135428_InitialCreate")]
+    [Migration("20230108174602_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -28,7 +28,7 @@ namespace projetribardcotecolissongr3.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("DisciplineId")
+                    b.Property<int>("DisciplineId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FirstName")
@@ -47,8 +47,6 @@ namespace projetribardcotecolissongr3.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DisciplineId");
 
                     b.ToTable("Athletes");
                 });
@@ -121,15 +119,6 @@ namespace projetribardcotecolissongr3.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sports");
-                });
-
-            modelBuilder.Entity("Athlete", b =>
-                {
-                    b.HasOne("Discipline", "Discipline")
-                        .WithMany()
-                        .HasForeignKey("DisciplineId");
-
-                    b.Navigation("Discipline");
                 });
 
             modelBuilder.Entity("Record", b =>
