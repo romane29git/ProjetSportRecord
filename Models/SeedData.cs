@@ -401,69 +401,69 @@ public class SeedData
                 Location = "Talence"
             };
 
-            context.Sports.AddRange(
-                natation,
-                athletisme,
-                musculation,
-                triathlon,
-                cyclisme,
-                apnee,
-                ski,
-                rugby,
-                genieLog
-            );
+            // context.Sports.AddRange(
+            //     natation,
+            //     athletisme,
+            //     musculation,
+            //     triathlon,
+            //     cyclisme,
+            //     apnee,
+            //     ski,
+            //     rugby,
+            //     genieLog
+            // );
 
-            context.Disciplines.AddRange(
-                brasse200,
-                sautLongueur,
-                m200,
-                souleveTerre,
-                developpeCouche,
-                squat,
-                bicepsCurl,
-                distanceM,
-                distanceL,
-                distanceXL,
-                ironMan,
-                routeRecordHeure,
-                routeKmPiste,
-                cycloCrossHeure,
-                duree,
-                distance,
-                profonfeur,
-                distanceGlace,
-                saut,
-                vitesse,
-                nbTitre,
-                essaiCarriere,
-                essaiSaison,
-                championnatMonde,
-                eleve,
-                prof
-            );
+            //     context.Disciplines.AddRange(
+            //         brasse200,
+            //         sautLongueur,
+            //         m200,
+            //         souleveTerre,
+            //         developpeCouche,
+            //         squat,
+            //         bicepsCurl,
+            //         distanceM,
+            //         distanceL,
+            //         distanceXL,
+            //         ironMan,
+            //         routeRecordHeure,
+            //         routeKmPiste,
+            //         cycloCrossHeure,
+            //         duree,
+            //         distance,
+            //         profonfeur,
+            //         distanceGlace,
+            //         saut,
+            //         vitesse,
+            //         nbTitre,
+            //         essaiCarriere,
+            //         essaiSaison,
+            //         championnatMonde,
+            //         eleve,
+            //         prof
+            //     );
 
 
-            context.Athletes.AddRange(
-                mikePowell,
-                emmaReaney,
-                johannaNordblad,
-                tanyaStreeter,
-                brankoPetrovic,
-                ceceroro,
-                baptiste
-            );
+            //     context.Athletes.AddRange(
+            //         mikePowell,
+            //         emmaReaney,
+            //         johannaNordblad,
+            //         tanyaStreeter,
+            //         brankoPetrovic,
+            //         ceceroro,
+            //         baptiste
+            //     );
 
-            context.Records.AddRange(
-                brasse200F,
-                sautLongueurH,
-                dureeApneeH,
-                profondeurF,
-                distanceGlaceF,
-                profH,
-                eleveF
-           );
+            //     context.Records.AddRange(
+            //         brasse200F,
+            //         sautLongueurH,
+            //         dureeApneeH,
+            //         profondeurF,
+            //         distanceGlaceF,
+            //         profH,
+            //         eleveF
+            //    );
 
-            context.SaveChanges();
+            // context.SaveChanges();
 
         }
 

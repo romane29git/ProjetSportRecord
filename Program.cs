@@ -1,6 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
-SeedData.init();
+// SeedData.init();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
