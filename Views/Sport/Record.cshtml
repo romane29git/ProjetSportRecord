@@ -10,26 +10,81 @@
 
 <h2> Les records: </h2>
 
+<table class="table">
+    @foreach (var item in Model)
+    {
+        if (item.Athlete.Gender == 'F')
+        {
+            <thead>
+                <tr>
+                    <th>
+                        Record féminin
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    Le record féminin est de @item.Performance. Il est détenu par <a asp-controller="Athlete"
+                asp-action="Index"> @item.Athlete.FirstName
+                        @item.Athlete.LastName </a> et a été établi le @item.Date.ToString().Split(new char[] {' '})[0] à
+                    @item.Location.
+                </td>
+            </tr>
+        }
 
-@* Ajout de la discipline et sa description et du record *@
+        if (item.Athlete.Gender == 'H')
+        {
+            <thead>
+                <tr>
+                    <th>
+                        Record masculin
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    Le record masculin est de @item.Performance. Il est détenu par <a asp-controller="Athlete"
+                asp-action="Index"> @item.Athlete.FirstName
+                        @item.Athlete.LastName </a> et a été établi le @item.Date.ToString().Split(new char[] {' '})[0] à
+                    @item.Location.
+                </td>
+            </tr>
+        }
+    }
 
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Performance)
-        </td>
-        <td>@Html.DisplayFor(modelItem => item.Athlete.FirstName)
-            @Html.DisplayFor(modelItem => item.Athlete.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date.ToString().Split(new char[] {' '})[0])
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-    </tr>
-}
+    @if (Model.Count() == 0)
+    {
+        <p> Il n'y a pas encore de record enregistré sur le site pour cette discipline.</p>
+    }
+
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@* <tr>
+    <td>
+    @Html.DisplayFor(modelItem => item.Performance)
+    </td>
+    <td>@Html.DisplayFor(modelItem => item.Athlete.FirstName)
+    @Html.DisplayFor(modelItem => item.Athlete.LastName)
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.Date.ToString().Split(new char[] {' '})[0])
+    </td>
+    <td>
+    @Html.DisplayFor(modelItem => item.Location)
+    </td>
+    </tr> *@
 
 
 @if (Model == null)

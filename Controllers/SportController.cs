@@ -107,7 +107,7 @@ public class SportController : Controller // not ControllerBase!
             .ToListAsync();
         if (record == null)
         {
-            return NotFound();
+            return View(null);
         }
 
         return View(record);
