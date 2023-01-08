@@ -5,17 +5,36 @@
     ViewData["Title"] = "Record";
 }
 
+<h2>@ViewData["nomDiscipline"]</h2>
+<p> @ViewData["descrDiscipline"]</p>
+
+<h2> Les records: </h2>
+
+
 @* Ajout de la discipline et sa description et du record *@
 
 @foreach (var item in Model)
 {
     <tr>
         <td>
-
             @Html.DisplayFor(modelItem => item.Performance)
-
+        </td>
+        <td>@Html.DisplayFor(modelItem => item.Athlete.FirstName)
+            @Html.DisplayFor(modelItem => item.Athlete.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date.ToString().Split(new char[] {' '})[0])
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
         </td>
     </tr>
+}
+
+
+@if (Model == null)
+{
+    <p> Il n'y a pas de record enregistré</p>
 }
 
 @* <h2>@Html.DisplayFor(model => model.Performance)</h2>

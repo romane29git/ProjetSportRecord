@@ -91,6 +91,10 @@ public class SportController : Controller // not ControllerBase!
     public async Task<IActionResult> Record(int? id)
     {
         ViewData["idDiscipline"] = id;
+        var discipline = await _context.Disciplines.FindAsync(id);
+        ViewData["nomDiscipline"] = discipline.Name;
+        ViewData["descrDiscipline"] = discipline.Description;
+
         if (id == null)
         {
             return NotFound();
@@ -99,6 +103,7 @@ public class SportController : Controller // not ControllerBase!
         // Recherche des records de la discipline
         var record = await _context.Records
             .Where(s => s.DisciplineId == id)
+            .Include(s => s.Athlete)
             .ToListAsync();
         if (record == null)
         {
