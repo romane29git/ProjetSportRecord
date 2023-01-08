@@ -29,6 +29,8 @@ public class SportController : Controller // not ControllerBase!
     public async Task<IActionResult> Disciplines(int? id)
     {
         ViewData["idSport"] = id;
+        var sport = await _context.Sports.FindAsync(id);
+        ViewData["nomSport"] = sport.Name;
         if (id == null)
         {
             return NotFound();
